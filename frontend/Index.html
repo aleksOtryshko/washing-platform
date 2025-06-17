@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Ремонт стиральных машин в Харькове</title>
+  <meta name="description" content="Найти мастера по ремонту стиральных машин в Харькове. Быстро, надёжно, круглосуточно.">
+</head>
+<body>
+  <h1>Ремонт стиральных машин в Харькове</h1>
+  <form id="orderForm">
+    <input name="name" placeholder="Имя" required><br>
+    <input name="phone" placeholder="Телефон" required><br>
+    <textarea name="problem" placeholder="Опишите проблему" required></textarea><br>
+    <button type="submit">Отправить заявку</button>
+  </form>
+
+  <script>
+  document.getElementById('orderForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target));
+    await fetch('https://your-backend.onrender.com/submit', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    });
+    alert('Заявка отправлена!');
+    e.target.reset();
+  });
+  </script>
+</body>
+</html>
