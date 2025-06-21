@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from . import models, schemas
+from app import models, schemas
 
 def create_order(db: Session, data: schemas.OrderCreate):
     order = models.Order(**data.dict())
