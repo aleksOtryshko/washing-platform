@@ -1,11 +1,10 @@
 from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
-from .database import engine, get_db, Base
-from . import models, schemas, crud
+from app.database import engine, get_db, Base
+from app import models, schemas, crud
 
 app = FastAPI()
 
-# При старте создаём все таблицы (синхронно)
 @app.on_event("startup")
 def on_startup():
     Base.metadata.create_all(bind=engine)
