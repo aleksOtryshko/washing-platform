@@ -1,23 +1,23 @@
 from fastapi import FastAPI, Depends
-from . import models, schemas, crud
+from sqlalchemy.orm import Session
 from .database import engine, get_db, Base
-from sqlalchemy.ext.asyncio import AsyncSession
+from . import models, schemas, crud
 
 app = FastAPI()
 
+# При старте создаём все таблицы (синхронно)
 @app.on_event("startup")
-async def startup():
-    async with engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
+def on_startup():
+    Base.metadata.create_all(bind=engine)
 
-@app.post("/orders/")
-async def create_order(order: schemas.OrderCreate, db: AsyncSession = Depends(get_db)):
-    return await crud.create_order(db, order)
+@app.post("/orders/", response_model=schemas.OrderCreate)
+def create_order(order: schemas.OrderCreate, db: Session = Depends(get_db)):
+    return crud.create_order(db, order)
 
-@app.post("/masters/")
-async def create_master(master: schemas.MasterCreate, db: AsyncSession = Depends(get_db)):
-    return await crud.create_master(db, master)
+@app.post("/masters/", response_model=schemas.MasterCreate)
+def create_master(master: schemas.MasterCreate, db: Session = Depends(get_db)):
+    return crud.create_master(db, master)
 
-@app.post("/progress/")
-async def create_progress(progress: schemas.OrderProgressCreate, db: AsyncSession = Depends(get_db)):
-    return await crud.create_progress(db, progress)
+@app.post("/progress/", response_model=schemas.OrderProgressCreate)
+def create_progress(progress: schemas.OrderProgressCreate, db: Session = Depends(get_db)):
+    return crud.create_progress(db, progress)
