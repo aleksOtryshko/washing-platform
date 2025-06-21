@@ -1,24 +1,23 @@
-from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.future import select
+from sqlalchemy.orm import Session
 from . import models, schemas
 
-async def create_order(db: AsyncSession, data: schemas.OrderCreate):
+def create_order(db: Session, data: schemas.OrderCreate):
     order = models.Order(**data.dict())
     db.add(order)
-    await db.commit()
-    await db.refresh(order)
+    db.commit()
+    db.refresh(order)
     return order
 
-async def create_master(db: AsyncSession, data: schemas.MasterCreate):
+def create_master(db: Session, data: schemas.MasterCreate):
     master = models.Master(**data.dict())
     db.add(master)
-    await db.commit()
-    await db.refresh(master)
+    db.commit()
+    db.refresh(master)
     return master
 
-async def create_progress(db: AsyncSession, data: schemas.OrderProgressCreate):
+def create_progress(db: Session, data: schemas.OrderProgressCreate):
     progress = models.OrderProgress(**data.dict())
     db.add(progress)
-    await db.commit()
-    await db.refresh(progress)
+    db.commit()
+    db.refresh(progress)
     return progress
