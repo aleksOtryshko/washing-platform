@@ -15,17 +15,26 @@
   </form>
 
   <script>
-  document.getElementById('orderForm').addEventListener('submit', async e => {
-    e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.target));
-    await fetch('https://your-backend.onrender.com/submit', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(data)
+    document.getElementById('orderForm').addEventListener('submit', async e => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target));
+
+      // 1) Ваш бэкенд-URL + путь
+      const res = await fetch('https://washing-platform.onrender.com/api/orders', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      });
+
+      // 2) Обработка ответа
+      if (res.ok) {
+        alert('Заявка отправлена!');
+        e.target.reset();
+      } else {
+        const text = await res.text();
+        alert('Ошибка при отправке: ' + text);
+      }
     });
-    alert('Заявка отправлена!');
-    e.target.reset();
-  });
   </script>
 </body>
 </html>
