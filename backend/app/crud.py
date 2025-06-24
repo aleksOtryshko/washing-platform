@@ -1,23 +1,10 @@
-from sqlalchemy.orm import Session
-from app import models, schemas
+from .database import supabase
+from .schemas import OrderCreate
 
-def create_order(db: Session, data: schemas.OrderCreate):
-    order = models.Order(**data.dict())
-    db.add(order)
-    db.commit()
-    db.refresh(order)
-    return order
+async def insert_order(data: OrderCreate):
+    res = supabase.table("orders").insert(data.dict()).execute()
+    return res.data[0]
 
-def create_master(db: Session, data: schemas.MasterCreate):
-    master = models.Master(**data.dict())
-    db.add(master)
-    db.commit()
-    db.refresh(master)
-    return master
-
-def create_progress(db: Session, data: schemas.OrderProgressCreate):
-    progress = models.OrderProgress(**data.dict())
-    db.add(progress)
-    db.commit()
-    db.refresh(progress)
-    return progress
+async def list_orders():
+    res = supabase.table("orders").select("*").execute()
+    return res.data
