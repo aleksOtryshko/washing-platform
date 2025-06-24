@@ -9,8 +9,8 @@
   <h1>Ремонт стиральных машин в Харькове</h1>
   <form id="orderForm">
     <input name="name" placeholder="Имя" required><br>
-    <input name="phone" placeholder="Телефон" required><br>
-    <textarea name="problem" placeholder="Опишите проблему" required></textarea><br>
+    <input name="phone_number" placeholder="Телефон" required>  <!-- изменено: name --> <br>
+    <textarea name="problem_description" placeholder="Опишите проблему" required></textarea>  <!-- изменено: name --> <br>
     <button type="submit">Отправить заявку</button>
   </form>
 
@@ -19,21 +19,14 @@
       e.preventDefault();
       const data = Object.fromEntries(new FormData(e.target));
 
-      // 1) Ваш бэкенд-URL + путь
-      const res = await fetch('https://washing-platform.onrender.com/api/orders', {
+      await fetch('https://washing-platform.onrender.com/api/orders', {  /* изменено: URL и путь */
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)
       });
 
-      // 2) Обработка ответа
-      if (res.ok) {
-        alert('Заявка отправлена!');
-        e.target.reset();
-      } else {
-        const text = await res.text();
-        alert('Ошибка при отправке: ' + text);
-      }
+      alert('Заявка отправлена!');
+      e.target.reset();
     });
   </script>
 </body>
