@@ -5,4 +5,4 @@ set -e
 cd "$(dirname "$0")"
 
 # Запускаем бота
-python3 bot.py
+python bot.py
