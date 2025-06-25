@@ -1,0 +1,8 @@
+{
+  "name": "washing-platform-telegram-bot",
+  "version": "1.0.0",
+  "scripts": {
+    "install": "pip3 install --no-cache-dir -r telegram_bot/requirements.txt",
+    "start":   "bash telegram_bot/start.sh"
+  }
+}
