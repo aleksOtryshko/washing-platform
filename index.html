@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Ремонт стиральных машин в Харькове</title>
+  <meta name="description" content="Найти мастера по ремонту стиральных машин в Харькове. Быстро, надёжно, круглосуточно.">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    #status {
+      margin-top: 15px;
+      padding: 10px;
+      display: none;
+      border-radius: 5px;
+    }
+
+    #status.loading {
+      display: block;
+      color: #333;
+    }
+
+    #status.success {
+      display: block;
+      color: green;
+    }
+
+    #status.error {
+      display: block;
+      color: red;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid #ccc;
+      border-top-color: #333;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+
+    input, textarea {
+      display: block;
+      margin-bottom: 10px;
+      width: 100%;
+      max-width: 300px;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ремонт стиральных машин в Харькове</h1>
+
+  <form id="orderForm">
+    <input name="name" placeholder="Имя" required>
+    <div class="error" id="nameError"></div>
+
+    <div style="display: flex; align-items: center; gap: 5px;">
+      <span>+38</span>
+      <input name="phone_number" placeholder="Номер телефона (10 цифр)" required>
+    </div>
+    <div class="error" id="phoneError"></div>
+
+    <textarea name="problem_description" placeholder="Опишите проблему" required></textarea>
+
+    <button type="submit">Отправить заявку</button>
+  </form>
+
+  <div id="status" class="loading">
+    <span class="spinner"></span>
+    <span id="statusText">Ваша заявка обрабатывается и определяется в очередь, спасибо что обратились к нам!</span>
+  </div>
+
+  <script>
+    const form = document.getElementById('orderForm');
+    const statusEl = document.getElementById('status');
+    const statusText = document.getElementById('statusText');
+    const nameError = document.getElementById('nameError');
+    const phoneError = document.getElementById('phoneError');
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+
+      // Сброс ошибок
+      nameError.textContent = '';
+      phoneError.textContent = '';
+
+      const data = Object.fromEntries(new FormData(form));
+
+      // Валидация имени
+      if (data.name.length > 50) {
+        nameError.textContent = 'Имя не может содержать более 50 символов.';
+        return;
+      }
+
+      // Валидация номера телефона (должно быть 10 цифр)
+      const phone = data.phone_number.trim();
+      if (!/^\d{10}$/.test(phone)) {
+        phoneError.textContent = 'Введите 10 цифр номера телефона без кода страны.';
+        return;
+      }
+
+      // Объединяем с кодом страны
+      data.phone_number = '+38' + phone;
+
+      // Показываем индикатор загрузки
+      statusEl.className = 'loading';
+      statusText.textContent = 'Ваша заявка обрабатывается и определяется в очередь, спасибо что обратились к нам!';
+      statusEl.style.display = 'block';
+
+      try {
+        const response = await fetch('https://washing-platform.onrender.com/api/orders', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          statusEl.className = 'success';
+          statusText.textContent = '✅ Ваша заявка успешно принята! Мастер скоро свяжется с вами.';
+          form.reset();
+        } else {
+          statusEl.className = 'error';
+          statusText.textContent = '❌ Что-то пошло не так. Перезагрузите страницу и повторите попытку.';
+        }
+      } catch (error) {
+        console.error('Ошибка сети:', error);
+        statusEl.className = 'error';
+        statusText.textContent = '❌ Не удалось связаться с сервером. Попробуйте позже.';
+      }
+    });
+  </script>
+</body>
+</html>
