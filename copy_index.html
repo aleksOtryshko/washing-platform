@@ -2,31 +2,157 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Ремонт стиральных машин в Харькове</title>
-  <meta name="description" content="Найти мастера по ремонту стиральных машин в Харькове. Быстро, надёжно, круглосуточно.">
+  <title>Ремонт стиральных машин в Харькове — мастер на дом 24/7</title>
+  <meta name="description" content="Профессиональный ремонт стиральных машин в Харькове: срочный выезд + гарантия 6–12 месяцев. Звоните — мастер приедет в тот же день!">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ремонт стиральных машин в Харькове — мастер на дом 24/7">
+  <meta property="og:description" content="Профессиональный ремонт стиральных машин в Харькове: срочный выезд + гарантия 6–12 месяцев.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://вашдомен.ua/">
+  <meta property="og:image" content="https://вашдомен.ua/preview.jpg">
+  <!-- Schema.org LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Ремонт стиральных машин в Харькове",
+    "image": "https://вашдомен.ua/logo.png",
+    "@id": "",
+    "url": "https://вашдомен.ua",
+    "telephone": "+380990783999",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Харьков",
+      "streetAddress": "ул. Ваш адрес, 1"
+    },
+    "openingHours": "Mo-Su 08:00-21:00",
+    "priceRange": "₴₴"
+  }
+  </script>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f9f9f9; color:#333; }
+    .wrapper { max-width:800px; margin:auto; padding:20px; background:#fff; }
+    h1,h2,h3 { color:#2d2d2d; }
+    form input, form textarea, form button { width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:4px; }
+    form button { background:#28a745; color:#fff; border:none; cursor:pointer; }
+    form button:disabled { background:#aaa; }
+    .error { color:red; font-size:0.9em; }
+    #status { display:none; padding:15px; margin-top:10px; border-radius:4px; }
+    #status.loading { background:#fff3cd; color:#856404; }
+    #status.success { background:#d4edda; color:#155724; }
+    #status.error { background:#f8d7da; color:#721c24; }
+    .spinner { width:20px; height:20px; border:3px solid #ccc; border-top-color:#333; border-radius:50%; animation:spin 1s linear infinite; display:inline-block; vertical-align:middle; margin-right:10px; }
+    @keyframes spin { to { transform:rotate(360deg); } }
+    .features { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:20px 0; }
+    .features div { background:#f1f1f1; padding:10px; border-radius:4px; }
+    .faq { margin:20px 0; }
+    .faq dt { font-weight:bold; margin-top:10px; }
+    .faq dd { margin-left:20px; }
+  </style>
 </head>
 <body>
-  <h1>Ремонт стиральных машин в Харькове</h1>
-  <form id="orderForm">
-    <input name="name" placeholder="Имя" required><br>
-    <input name="phone_number" placeholder="Телефон" required>  <!-- изменено: name --> <br>
-    <textarea name="problem_description" placeholder="Опишите проблему" required></textarea>  <!-- изменено: name --> <br>
-    <button type="submit">Отправить заявку</button>
-  </form>
+  <div class="wrapper">
+    <h1>Ремонт стиральных машин в Харькове — мастер на дом 24/7</h1>
+    <p>Срочный выезд мастера в любой район Харькова. Гарантия 6–12 месяцев. Бесплатная консультация и бесплатный выезд при ремонте.</p>
+
+    <form id="orderForm">
+      <input name="name" placeholder="Имя" required>
+      <div class="error" id="nameError"></div>
+      <div style="display:flex; align-items:center; gap:5px;">
+        <span>+38</span>
+        <input name="phone_number" placeholder="Номер телефона (10 цифр)" required>
+      </div>
+      <div class="error" id="phoneError"></div>
+      <textarea name="problem_description" placeholder="Опишите проблему" required rows="4"></textarea>
+      <button type="submit">ВЫЗВАТЬ МАСТЕРА</button>
+    </form>
+
+    <div id="status" class="loading">
+      <span id="statusText">Ваша заявка обрабатывается и определяется в очередь, спасибо что обратились к нам!</span>
+    </div>
+
+    <h2>Почему выбирают нас</h2>
+    <div class="features">
+      <div>✅ Срочный выезд в день заявки</div>
+      <div>🛠️ Гарантия 6–12 месяцев</div>
+      <div>🔧 Оригинальные комплектующие</div>
+      <div>👨‍🔧 Мастера с опытом от 5 лет</div>
+      <div>📞 Бесплатный выезд и диагностика</div>
+      <div>🌍 Все районы Харькова, включая область</div>
+    </div>
+
+    <h2>Частые неисправности</h2>
+    <ul>
+      <li>Шум, вибрация при отжиме — амортизаторы, подшипники</li>
+      <li>Не сливает воду — помпа, фильтр засорен</li>
+      <li>Не греет воду — ТЭН, датчик температуры</li>
+      <li>Не запускается — блоки управления, двигатель</li>
+    </ul>
+
+    <h2>FAQ</h2>
+    <dl class="faq">
+      <dt>Как быстро мастер приедет?</dt>
+      <dd>Обычно в течение 1–3 часов после заявки.</dd>
+      <dt>Какая гарантия?</dt>
+      <dd>От 6 до 12 месяцев — зависит от детали.</dd>
+      <dt>Сколько стоит выезд?</dt>
+      <dd>Выезд и диагностика — бесплатно при ремонте, иначе от 200 ₴.</dd>
+    </dl>
+
+    <h3>Контакты</h3>
+    <p>📞 +38 (099) 078‑39‑99<br>
+       📍 Харьков, ул. Ваш адрес<br>
+       ⏰ Работаем 08:00–21:00 без выходных</p>
+  </div>
 
   <script>
-    document.getElementById('orderForm').addEventListener('submit', async e => {
+    const form = document.getElementById('orderForm');
+    const statusEl = document.getElementById('status');
+    const statusText = document.getElementById('statusText');
+    const nameError = document.getElementById('nameError');
+    const phoneError = document.getElementById('phoneError');
+
+    form.addEventListener('submit', async e => {
       e.preventDefault();
-      const data = Object.fromEntries(new FormData(e.target));
+      nameError.textContent = '';
+      phoneError.textContent = '';
+      let data = Object.fromEntries(new FormData(form));
 
-      await fetch('https://washing-platform.onrender.com/api/orders', {  /* изменено: URL и путь */
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(data)
-      });
+      if (data.name.length > 50) {
+        nameError.textContent = 'Имя не может быть длиннее 50 символов.';
+        return;
+      }
+      if (!/^\d{10}$/.test(data.phone_number.trim())) {
+        phoneError.textContent = 'Введите 10 цифр номера телефона.';
+        return;
+      }
+      data.phone_number = '+38' + data.phone_number.trim();
 
-      alert('Заявка отправлена!');
-      e.target.reset();
+      statusEl.className = 'loading';
+      statusText.textContent = 'Ваша заявка обрабатывается и определяется в очередь...';
+      statusEl.style.display = 'block';
+      form.querySelector('button').disabled = true;
+
+      try {
+        const resp = await fetch('https://washing-platform.onrender.com/api/orders', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify(data)
+        });
+        if (resp.ok) {
+          statusEl.className = 'success';
+          statusText.textContent = '✅ Ваша заявка принята! Мастер свяжется с вами вскоре.';
+          form.reset();
+        } else {
+          throw new Error('server error');
+        }
+      } catch {
+        statusEl.className = 'error';
+        statusText.textContent = '❌ Возникла ошибка. Пожалуйста, перезагрузите страницу и попробуйте снова.';
+      } finally {
+        form.querySelector('button').disabled = false;
+      }
     });
   </script>
 </body>
