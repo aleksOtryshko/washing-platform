@@ -122,6 +122,21 @@
         <button onclick="nextSlide()">▶</button>
       </div>
   </div>
+    <section id="leave-review" class="block">
+  <h2>Залишити відгук</h2>
+  <form class="form" id="reviewForm">
+    <input name="review_name" placeholder="Ваше ім’я" required>
+    <div class="error" id="reviewNameError"></div>
+
+    <textarea name="review_message" placeholder="Ваш відгук" required rows="4"></textarea>
+    <div class="error" id="reviewTextError"></div>
+
+    <button type="submit">Надіслати відгук</button>
+  </form>
+  <div id="reviewStatus"></div>
+</section>
+
+      
     </section>
 
     
