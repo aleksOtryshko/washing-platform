@@ -1,4 +1,4 @@
-// scripts.js
+//scripts.js
 
 function getLanguage() {
   return localStorage.getItem('lang') ||
@@ -174,3 +174,4 @@ if (form) {
     }
   });
 }
+
