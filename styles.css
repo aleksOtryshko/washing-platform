@@ -291,16 +291,19 @@ footer {
 }
 
 .main-button {
-  background: #0077cc;
-  color: #fff;
-  font-weight: bold;
-  padding: 8px 16px;
+  background: #66CCFF; /* светло-голубой */
+  color: #ffffff;
+  font-weight: 700; /* жирный */
+  padding: 12px 20px;
+  font-size: 1.15em; /* немного больше */
   border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0, 119, 204, 0.2);
+  box-shadow: 0 2px 8px rgba(102, 204, 255, 0.4);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .main-button:hover {
-  background: #005fa3;
+  background: #33B5E5; /* насыщенный голубой */
+  box-shadow: 0 2px 10px rgba(51, 181, 229, 0.6);
 }
 
   
