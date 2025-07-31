@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Washing Machine Repair in Kharkiv</title>
-  <meta name="description" content="Fast repair of washing machines in Kharkiv with a guarantee. Call a technician to your home.">
+  <meta name="description" content="Urgent washing machine repair with warranty. Technician visit to your home.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
@@ -17,21 +17,32 @@
         
         <a href="index-en.html">en</a>
       </div>
-      <nav class="main-nav">
-        <a href="#seo">Services</a>
-        <a href="#form">Request</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#faq">FAQ</a>
+      <nav class="main-nav" style="margin-top: 40px;">
+        <a href="#form" class="nav-highlight main-button">Leave a Request</a>
+        <a href="#reviews" class="nav-highlight">Reviews</a>
+        <a href="#faq" class="nav-highlight">FAQ</a>
       </nav>
     </div>
     <div class="hero">
       <div class="hero-text">
         <h1>Washing Machine Repair in Kharkiv</h1>
-        <p>Fast, reliable service at your doorstep</p>
-        <a href="#form" class="cta-button">Submit a Request</a>
+        <p>Fast and guaranteed service at your home</p>
+        <p>Has your washing machine broken down? Don’t panic or rush to buy a new one. Most problems can be fixed in a single technician visit. We offer professional at-home washing machine repair in Kharkiv. Our convenient and fast service will save you hassle — just leave a request, and our specialist will come at a time that suits you.</p>
+        <p>We operate all over Kharkiv and surrounding areas. Our technicians are highly experienced and regularly trained. We repair machines of all brands: Samsung, LG, Indesit, Bosch, Whirlpool, Electrolux, Ariston, and others. Any issue — from a clogged filter or pump failure to control board malfunctions — will be fixed professionally and with warranty.</p>
+        <p>Calling a technician for at-home repair in Kharkiv means saving time and money. No need to carry heavy equipment to a service center. We’ll come to you, perform diagnostics, offer the best solution, and repair the issue on-site.</p>
+        <ul class="features">
+          <li> Free diagnostics with repair</li>
+          <li> Only original or certified spare parts</li>
+          <li> Up to 12-month warranty on all repairs</li>
+          <li> Transparent pricing with no hidden fees</li>
+          <li> We work 7 days a week, no days off</li>
+        </ul>
+        <p>We value your time and comfort. If your washing machine is broken, just call us or submit a request online. We’ll come the same day and fix everything.</p>
+        <p><strong>Choose reliable washing machine repair in Kharkiv — and get your appliance working like new again!</strong></p>
+        <a href="#form" class="cta-button">Leave a Request</a>
       </div>
       <div class="hero-img">
-        <img src="assets/washing-machine.png" alt="Washing Machine">
+        <img src="assets/washing-machine.png" alt="Washing machine">
       </div>
     </div>
   </header>
@@ -40,27 +51,33 @@
     <section id="seo" class="block">
       <h2>Why Choose Us</h2>
       <ul class="features">
-        <li>🔧 Experienced technicians</li>
-        <li>⏱ Fast home visit in 1–3 hours</li>
-        <li>📞 Free consultation</li>
-        <li>💲 Transparent pricing</li>
-        <li>💼 Warranty up to 12 months</li>
+        <li> Experienced technicians</li>
+        <li> Arrival in 1–3 hours</li>
+        <li> Free consultation</li>
+        <li> Transparent pricing</li>
+        <li> Up to 12-month warranty</li>
       </ul>
     </section>
 
     <section class="block">
       <h2>We Repair All Brands</h2>
       <div class="logos">
-        <img src="assets/lg.png" alt="LG">
-        <img src="assets/samsung.png" alt="Samsung">
-        <img src="assets/whirlpool.png" alt="Whirlpool">
         <img src="assets/bosch.png" alt="Bosch">
+        <img src="assets/siemens.png" alt="Siemens">
+        <img src="assets/aeg.png" alt="AEG">
         <img src="assets/electrolux.png" alt="Electrolux">
+        <img src="assets/whirlpool.png" alt="Whirlpool">
+        <img src="assets/zanussi.png" alt="Zanussi">
+        <img src="assets/indesit.png" alt="Indesit">
+        <img src="assets/gorenje.png" alt="Gorenje">
+        <img src="assets/samsung.png" alt="Samsung">
+        <img src="assets/lg.png" alt="LG">
       </div>
+      <p style="text-align: center; font-style: italic; margin-top: 10px;">and more</p>
     </section>
 
     <section id="form" class="block">
-      <h2>Request a Repair</h2>
+      <h2>Repair Request</h2>
       <form class="form" id="orderForm">
         <input name="name" placeholder="Your name" required>
         <div class="error" id="nameError"></div>
@@ -69,8 +86,8 @@
           <input name="phone_number" placeholder="Phone number (10 digits)" required>
         </div>
         <div class="error" id="phoneError"></div>
-        <textarea name="problem_description" placeholder="Describe the problem" required rows="4"></textarea>
-        <button type="submit">Submit Request</button>
+        <textarea name="problem_description" placeholder="Describe the issue" required rows="4"></textarea>
+        <button type="submit">Send Request</button>
       </form>
       <div id="status"></div>
     </section>
@@ -80,8 +97,7 @@
     <section id="reviews" class="block">
       <h2>Customer Reviews</h2>
       <div class="slider" id="slider">
-        <div class="slide"><strong>Anna</strong><br>Great service! Fixed my washer in one visit.</div>
-        <div class="slide"><strong>Igor</strong><br>Fast and polite technician. Thanks!</div>
+        <!-- You can translate and insert the reviews here if needed -->
       </div>
       <div class="controls">
         <button onclick="prevSlide()">◀</button>
@@ -89,20 +105,48 @@
       </div>
     </section>
 
+    <section id="leave-review" class="block">
+      <h2>Leave a Review</h2>
+      <form class="form" id="reviewForm">
+        <input name="review_name" placeholder="Your name" required>
+        <div class="error" id="reviewNameError"></div>
+
+        <textarea name="review_message" placeholder="Your review" required rows="4"></textarea>
+        <div class="error" id="reviewTextError"></div>
+
+        <button type="submit">Send Review</button>
+      </form>
+      <div id="reviewStatus"></div>
+    </section>
+
+    <section class="block">
+      <h2>5 Tips from Our Technicians</h2>
+      <ul class="tips">
+        <li>Clean the pump filter regularly.</li>
+        <li>Do not overload with laundry.</li>
+        <li>Use quality detergents.</li>
+        <li>Drain water after each wash.</li>
+        <li>Clean the drum with citric acid every 6 months.</li>
+      </ul>
+    </section>
+
     <section id="faq" class="block">
-      <h2>FAQ</h2>
+      <h2>Frequently Asked Questions</h2>
       <dl>
-        <dt>How soon can a technician arrive?</dt>
-        <dd>Usually within 1–3 hours.</dd>
-        <dt>Is there a warranty?</dt>
-        <dd>Yes, 6 to 12 months depending on the issue.</dd>
+        <dt>How long to wait for a technician?</dt>
+        <dd>1 to 3 hours depending on the area.</dd>
+        <dt>What warranty do you offer?</dt>
+        <dd>From 3 to 12 months.</dd>
+        <dt>How much does diagnostics cost?</dt>
+        <dd>Free with repair.</dd>
+        <dt>What are the most common issues?</dt>
+        <dd>Won’t turn on, no heating, won’t drain, errors F01–F08, shaking.</dd>
       </dl>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Washing Machine Repair in Kharkiv | Tel: +38 (099) 078 - 39 - 99</p>
+    <p>© 2025 Washing Machine Repair in Kharkiv </p>
   </footer>
 </body>
 </html>
-
