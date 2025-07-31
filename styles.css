@@ -274,9 +274,8 @@ footer {
     max-width: 260px;
     margin-top: 20px;
   }
-}
 
-.nav-highlight {
+  .nav-highlight {
   color: #0077cc;
   font-weight: 600;
   background: #eaf6ff;
@@ -302,6 +301,8 @@ footer {
 
 .main-button:hover {
   background: #005fa3;
-  }
+}
 
   
+}
+
