@@ -276,4 +276,32 @@ footer {
   }
 }
 
+.nav-highlight {
+  color: #0077cc;
+  font-weight: 600;
+  background: #eaf6ff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-highlight:hover {
+  background: #d0ecff;
+  color: #005fa3;
+  text-decoration: none;
+}
+
+.main-button {
+  background: #0077cc;
+  color: #fff;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 119, 204, 0.2);
+}
+
+.main-button:hover {
+  background: #005fa3;
+  }
+
   
