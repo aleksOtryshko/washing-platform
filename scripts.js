@@ -1,22 +1,7 @@
-//scripts.js
+// scripts.js
 
 function getLanguage() {
-  // Сначала пробуем прочитать из <html lang="">
-  const htmlLang = document.documentElement.lang;
-  if (htmlLang) {
-    if (htmlLang.startsWith('ru')) return 'ru';
-    if (htmlLang.startsWith('en')) return 'en';
-    return 'uk'; // по умолчанию украинский
-  }
-
-  // Если не нашли — пробуем из localStorage
-  const storedLang = localStorage.getItem('lang');
-  if (storedLang) return storedLang;
-
-  // Если и там нет — смотрим язык браузера
-  if (navigator.language.startsWith('ru')) return 'ru';
-  if (navigator.language.startsWith('en')) return 'en';
-  return 'uk';
+  return window.pageLang || 'uk'; // Берём язык из HTML, по умолчанию украинский
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -95,6 +80,7 @@ if (form) {
     }
   };
 
+  // Создаём модальное окно
   const modal = document.createElement('div');
   modal.id = 'modal';
   modal.style.cssText = `
@@ -186,5 +172,4 @@ if (form) {
       setTimeout(() => modal.remove(), 4000);
     }
   });
-}
-
+    }
