@@ -1,9 +1,22 @@
 //scripts.js
 
 function getLanguage() {
-  return localStorage.getItem('lang') ||
-    (navigator.language.startsWith('ru') ? 'ru'
-      : navigator.language.startsWith('en') ? 'en' : 'uk');
+  // Сначала пробуем прочитать из <html lang="">
+  const htmlLang = document.documentElement.lang;
+  if (htmlLang) {
+    if (htmlLang.startsWith('ru')) return 'ru';
+    if (htmlLang.startsWith('en')) return 'en';
+    return 'uk'; // по умолчанию украинский
+  }
+
+  // Если не нашли — пробуем из localStorage
+  const storedLang = localStorage.getItem('lang');
+  if (storedLang) return storedLang;
+
+  // Если и там нет — смотрим язык браузера
+  if (navigator.language.startsWith('ru')) return 'ru';
+  if (navigator.language.startsWith('en')) return 'en';
+  return 'uk';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
