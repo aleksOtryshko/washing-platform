@@ -6,9 +6,9 @@ from .crud import insert_order
 app = FastAPI()
 
 # 1) Разрешённый фронт
-origins = ["*",
-    #"https://aleksotryshko.github.io",
-    #"https:/stiralka.site",
+origins = [
+    "https://aleksotryshko.github.io",
+    "https://stiralka.site",
     # если будете тестить локально, можно раскомментировать:
     # "http://localhost:5500",
     # "http://127.0.0.1:5500",
