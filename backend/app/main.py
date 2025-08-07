@@ -18,7 +18,7 @@ origins = [
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,       # кому можно шортить запросы
-    Allow_credentials=True,      # если нужны куки/авторизация
+    allow_credentials=True,      # если нужны куки/авторизация
     allow_methods=["*"],         # все HTTP-методы
     allow_headers=["*"],         # все заголовки
 )
