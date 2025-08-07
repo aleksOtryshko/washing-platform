@@ -8,6 +8,7 @@ app = FastAPI()
 # 1) Разрешённый фронт
 origins = [
     "https://aleksotryshko.github.io",
+    "https:/stiralka.site",
     # если будете тестить локально, можно раскомментировать:
     # "http://localhost:5500",
     # "http://127.0.0.1:5500",
@@ -17,7 +18,7 @@ origins = [
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,       # кому можно шортить запросы
-    allow_credentials=True,      # если нужны куки/авторизация
+    Allow_credentials=True,      # если нужны куки/авторизация
     allow_methods=["*"],         # все HTTP-методы
     allow_headers=["*"],         # все заголовки
 )
