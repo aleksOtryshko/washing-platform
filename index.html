@@ -11,17 +11,16 @@
 <link rel="canonical" href="https://stiralka.site/index-ru.html" />
   <!-- Автоперенаправление только для людей -->
   <script>
-    const isBot = /bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent);
-    if (!isBot) {
-      const storedLang = localStorage.getItem('lang');
-      const browserLang = navigator.language.startsWith('ru') ? 'ru'
-                        : navigator.language.startsWith('en') ? 'en' : 'uk';
-      const lang = storedLang || browserLang;
-      if (lang !== 'uk') {
-        location.href = `index-${lang}.html`;
-      }
+  const isBot = /bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent);
+  if (!isBot) {
+    const lang = navigator.language.startsWith('ru') ? 'ru'
+                : navigator.language.startsWith('en') ? 'en'
+                : 'uk'; // По умолчанию — украинский
+    if (lang !== 'uk') {
+      location.replace(`index-${lang}.html`);
     }
-  </script>
+  }
+</script>
 
   <script>
     window.pageLang = 'uk';
