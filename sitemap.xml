@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Только русская версия -->
+  <!-- Главная -->
+  <url>
+    <loc>https://stiralka.site/</loc>
+    <lastmod>2025-08-29</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <!-- Русская версия -->
   <url>
     <loc>https://stiralka.site/index-ru.html</loc>
-    <priority>1.0</priority>
+    <lastmod>2025-08-29</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <!-- Украинская версия -->
+  <url>
+    <loc>https://stiralka.site/index-uk.html</loc>
+    <lastmod>2025-08-29</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <!-- Английская версия -->
+  <url>
+    <loc>https://stiralka.site/index-en.html</loc>
+    <lastmod>2025-08-29</lastmod>
+    <priority>0.8</priority>
   </url>
 </urlset>
