@@ -13,6 +13,7 @@ function getMessages() {
       success: '✅ Заявка принята! Мастер скоро свяжется с вами.',
       error: '❌ Ошибка. Повторите попытку через пару минут.'
     },
+
     uk: {
       nameError: 'Ім’я не може перевищувати 50 символів.',
       phoneError: 'Введіть 10 цифр без +38.',
@@ -20,6 +21,7 @@ function getMessages() {
       success: '✅ Заявку прийнято! Майстер скоро зв’яжеться з вами.',
       error: '❌ Помилка. Повторіть спробу через кілька хвилин.'
     },
+
     en: {
       nameError: 'Name must be under 50 characters.',
       phoneError: 'Enter 10 digits without +38.',
@@ -38,6 +40,7 @@ function showModal(message) {
   if (!modal) {
     modal = document.createElement('div');
     modal.id = 'modal';
+
     modal.style.cssText = `
       position: fixed;
       inset: 0;
@@ -50,6 +53,7 @@ function showModal(message) {
     `;
 
     const box = document.createElement('div');
+
     box.style.cssText = `
       background: #fff;
       padding: 28px 22px;
@@ -71,6 +75,7 @@ function showModal(message) {
   }
 
   const text = document.getElementById('modalText');
+
   if (text) {
     text.textContent = message;
   }
@@ -79,6 +84,7 @@ function showModal(message) {
 function closeModalLater(delay) {
   setTimeout(() => {
     const modal = document.getElementById('modal');
+
     if (modal) {
       modal.remove();
     }
@@ -92,6 +98,7 @@ function addSpinnerStyles() {
 
   const spinner = document.createElement('style');
   spinner.id = 'spinnerStyles';
+
   spinner.innerHTML = `
     .spinner {
       border: 4px solid #f1f5f9;
@@ -104,10 +111,16 @@ function addSpinnerStyles() {
     }
 
     @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
     }
   `;
+
   document.head.appendChild(spinner);
 }
 
@@ -119,6 +132,7 @@ function initOrderForms() {
   }
 
   const messages = getMessages();
+
   addSpinnerStyles();
 
   forms.forEach((form) => {
@@ -127,58 +141,140 @@ function initOrderForms() {
 
       const nameInput = form.querySelector('input[name="name"]');
       const phoneInput = form.querySelector('input[name="phone_number"]');
-      const descInput = form.querySelector('textarea[name="problem_description"]');
+      const descInput = form.querySelector(
+        'textarea[name="problem_description"]'
+      );
 
       const nameError = form.querySelector('.nameError');
       const phoneError = form.querySelector('.phoneError');
 
-      const name = nameInput ? nameInput.value.trim() : '';
-      const phone = phoneInput ? phoneInput.value.trim() : '';
-      const desc = descInput ? descInput.value.trim() : '';
+      const name = nameInput
+        ? nameInput.value.trim()
+        : '';
 
-      if (nameError) nameError.textContent = '';
-      if (phoneError) phoneError.textContent = '';
+      const phoneRaw = phoneInput
+        ? phoneInput.value.trim()
+        : '';
 
+      const desc = descInput
+        ? descInput.value.trim()
+        : '';
+
+      /*
+       * Убираем пробелы, скобки, дефисы и другие
+       * символы, оставляя только цифры.
+       *
+       * Например:
+       * 0965454541
+       * 096 545 45 41
+       * 096-545-45-41
+       *
+       * превратятся в:
+       * 0965454541
+       */
+      const phone = phoneRaw.replace(/\D/g, '');
+
+      if (nameError) {
+        nameError.textContent = '';
+      }
+
+      if (phoneError) {
+        phoneError.textContent = '';
+      }
+
+      /*
+       * Проверка имени.
+       */
       if (name.length > 50) {
-        if (nameError) nameError.textContent = messages.nameError;
+        if (nameError) {
+          nameError.textContent = messages.nameError;
+        }
+
         return;
       }
 
-      if (!/^\\d{10}$/.test(phone)) {
-        if (phoneError) phoneError.textContent = messages.phoneError;
+      /*
+       * Проверяем, что номер состоит ровно
+       * из 10 цифр.
+       *
+       * Например:
+       * 0965454541
+       */
+      if (!/^\d{10}$/.test(phone)) {
+        if (phoneError) {
+          phoneError.textContent = messages.phoneError;
+        }
+
         return;
       }
 
-      showModal(messages.processing);
+      /*
+       * Украинский локальный номер должен
+       * начинаться с 0.
+       */
+      if (!phone.startsWith('0')) {
+        if (phoneError) {
+          phoneError.textContent = messages.phoneError;
+        }
+
+        return;
+      }
+
+      /*
+       * В backend отправляем полный номер.
+       *
+       * 0965454541
+       * становится
+       * +380965454541
+       */
+      const fullPhoneNumber = '+38' + phone;
 
       const data = {
         name: name,
-        phone_number: '+38' + phone,
+        phone_number: fullPhoneNumber,
         problem_description: desc
       };
 
+      showModal(messages.processing);
+
       try {
-        const response = await fetch('https://washing-platform.onrender.com/api/orders', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        });
+        const response = await fetch(
+          'https://washing-platform.onrender.com/api/orders',
+          {
+            method: 'POST',
+
+            headers: {
+              'Content-Type': 'application/json'
+            },
+
+            body: JSON.stringify(data)
+          }
+        );
 
         if (!response.ok) {
-          throw new Error('Request failed');
+          throw new Error(
+            `Request failed with status ${response.status}`
+          );
         }
 
         form.reset();
+
         showModal(messages.success);
+
         closeModalLater(3000);
+
       } catch (error) {
+        console.error('Order form error:', error);
+
         showModal(messages.error);
+
         closeModalLater(4000);
       }
     });
   });
 }
 
-document.addEventListener('DOMContentLoaded', initOrderForms);
+document.addEventListener(
+  'DOMContentLoaded',
+  initOrderForms
+);
