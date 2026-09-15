@@ -96,3 +96,8 @@ async def create_order(request: Request):
     return await insert_order(
         order
     )
+
+
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
