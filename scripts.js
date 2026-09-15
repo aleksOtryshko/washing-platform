@@ -1,5 +1,5 @@
 const ORDER_API_URL = 'https://washing-platform.onrender.com/api/orders';
-const ORDER_REQUEST_TIMEOUT_MS = 20000;
+const ORDER_REQUEST_TIMEOUT_MS = 120000;
 
 let modalCloseTimer = null;
 
