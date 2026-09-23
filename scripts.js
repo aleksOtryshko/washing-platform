@@ -359,6 +359,22 @@ function initOrderForms() {
           }
         );
 
+        // Google Ads conversion: successful order
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'conversion', {
+                'send_to': 'AW-17465538794/LkkCCJ60k4EdEOrxm4hB'
+            });
+
+            console.info(
+                'Google Ads conversion sent:',
+                'AW-17465538794/LkkCCJ60k4EdEOrxm4hB'
+            );
+        } else {
+            console.warn(
+                'Google Ads tag is not available'
+            );
+        }
+
         form.reset();
 
         showModal(
