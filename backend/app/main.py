@@ -14,7 +14,7 @@ app = FastAPI()
 # Разрешённые фронтенды.
 origins = [
     "https://aleksotryshko.github.io",
-    "https://stiralka.site",
+    "https://remontstiralok.kh.ua",
     "https://remontstiralok.kh.ua",
     "https://www.remontstiralok.kh.ua",
 ]

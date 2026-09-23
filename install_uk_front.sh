@@ -184,9 +184,9 @@ cat > uk/index.html <<'EOF'
 
 <footer class="footer">
   <div class="footer-inner">
-    <strong>Stiralka.site</strong>
+    <strong>remontstiralok.kh.ua</strong>
     <span>Ремонт пральних машин у Харкові вдома.</span>
-    <span>© 2026 Stiralka.site</span>
+    <span>© 2026 remontstiralok.kh.ua</span>
   </div>
 </footer>
 
@@ -345,9 +345,9 @@ cat > uk/price/index.html <<'EOF'
 
 <footer class="footer">
   <div class="footer-inner">
-    <strong>Stiralka.site</strong>
+    <strong>remontstiralok.kh.ua</strong>
     <span>Прайс-лист на ремонт пральних машин у Харкові.</span>
-    <span>© 2026 Stiralka.site</span>
+    <span>© 2026 remontstiralok.kh.ua</span>
   </div>
 </footer>
 
@@ -501,9 +501,9 @@ create_brand_page() {
 
 <footer class="footer">
   <div class="footer-inner">
-    <strong>Stiralka.site</strong>
+    <strong>remontstiralok.kh.ua</strong>
     <span>$h1.</span>
-    <span>© 2026 Stiralka.site</span>
+    <span>© 2026 remontstiralok.kh.ua</span>
   </div>
 </footer>
 
