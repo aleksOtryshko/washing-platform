@@ -1,88 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://aleksotryshko.github.io/washing-platform/</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://aleksotryshko.github.io/washing-platform/price/</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://aleksotryshko.github.io/washing-platform/remont-bosch/</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://aleksotryshko.github.io/washing-platform/remont-samsung/</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://aleksotryshko.github.io/washing-platform/remont-lg/</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://aleksotryshko.github.io/washing-platform/remont-indesit/</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://aleksotryshko.github.io/washing-platform/uk/</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://aleksotryshko.github.io/washing-platform/uk/price/</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://aleksotryshko.github.io/washing-platform/uk/remont-bosch/</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://aleksotryshko.github.io/washing-platform/uk/remont-samsung/</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://aleksotryshko.github.io/washing-platform/uk/remont-lg/</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://aleksotryshko.github.io/washing-platform/uk/remont-indesit/</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
+  <url><loc>https://remontstiralok.kh.ua/</loc></url>
+  <url><loc>https://remontstiralok.kh.ua/uk/</loc></url>
+  <url><loc>https://remontstiralok.kh.ua/price/</loc></url>
+  <url><loc>https://remontstiralok.kh.ua/uk/price/</loc></url>
+  <url><loc>https://remontstiralok.kh.ua/remont-bosch/</loc></url>
+  <url><loc>https://remontstiralok.kh.ua/uk/remont-bosch/</loc></url>
+  <url><loc>https://remontstiralok.kh.ua/remont-samsung/</loc></url>
+  <url><loc>https://remontstiralok.kh.ua/uk/remont-samsung/</loc></url>
+  <url><loc>https://remontstiralok.kh.ua/remont-lg/</loc></url>
+  <url><loc>https://remontstiralok.kh.ua/uk/remont-lg/</loc></url>
+  <url><loc>https://remontstiralok.kh.ua/remont-indesit/</loc></url>
+  <url><loc>https://remontstiralok.kh.ua/uk/remont-indesit/</loc></url>
+  <url><loc>https://remontstiralok.kh.ua/remont-electrolux/</loc></url>
+  <url><loc>https://remontstiralok.kh.ua/uk/remont-electrolux/</loc></url>
+  <url><loc>https://remontstiralok.kh.ua/remont-zanussi/</loc></url>
+  <url><loc>https://remontstiralok.kh.ua/uk/remont-zanussi/</loc></url>
 </urlset>
