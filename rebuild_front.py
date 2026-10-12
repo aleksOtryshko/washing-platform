@@ -20,6 +20,10 @@ ADS_ID = (
     "AW-17465538794"
 )
 
+GA4_ID = (
+    "G-WFR2KLDDBL"
+)
+
 
 GOOGLE_TAG = f'''
 <!-- Google tag (gtag.js) - Google Ads -->
@@ -43,6 +47,11 @@ GOOGLE_TAG = f'''
   gtag(
     'config',
     '{ADS_ID}'
+  );
+
+  gtag(
+    'config',
+    '{GA4_ID}'
   );
 </script>
 '''

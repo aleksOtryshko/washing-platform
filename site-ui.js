@@ -452,11 +452,19 @@
       sendEvent(
         'phone_click',
         {
+          send_to:
+            'G-WFR2KLDDBL',
+
           phone_number:
             PHONE,
 
           page_path:
-            window.location.pathname
+            window.location.pathname,
+
+          link_text:
+            (
+              phoneLink.textContent || ''
+            ).trim()
         }
       );
 
